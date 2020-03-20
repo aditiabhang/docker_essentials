@@ -1,0 +1,14 @@
+## 4. Applying rolling updates
+- Updating the version of NGINX to version 1.13.
+
+- To run the docker service update command:
+```$ docker service update --image nginx:1.13 --detach=true nginx1 ```
+    
+    - This triggers a rolling update of the swarm. Quickly enter the command docker service ps nginx1 over and over to see the updates in real time.
+
+- You can fine-tune the rolling update by using these options:
+
+    - **--update-parallelism** : specifies the number of containers to update immediately (defaults to 1) 
+    - **--update-delay** : specifies the delay between finishing updating a set of containers before moving on to the next set.
+- After a few seconds, run the command docker service ps nginx1 to see all the images that have been updated to nginx:1.13.
+``` $ docker service ps nginx1```
